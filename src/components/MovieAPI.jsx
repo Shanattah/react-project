@@ -26,7 +26,9 @@ function MovieAPI() {
           if (data.Response === "True") {
             setMovies(data.Search || []);
           } else {
-            setError(data.Error);
+            const errorMessage =
+              type === "" ? "Movie not found" : `No ${type}s found`;
+            setError(errorMessage);
             setMovies([]);
           }
         })
