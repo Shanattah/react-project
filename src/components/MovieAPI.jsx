@@ -5,7 +5,7 @@ import MovieList from "./MovieList";
 const apiKey = "baad570d";
 
 function MovieAPI() {
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState("Liza");
   const [type, setType] = useState("");
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -44,7 +44,7 @@ function MovieAPI() {
 
   return (
     <div>
-      <Form onSearch={setQuery} onTypeChange={setType} />
+      <Form onSearch={setQuery} onTypeChange={setType} initialKeyword={query} />
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}
       {!loading && !error && <MovieList movies={movies} />}
